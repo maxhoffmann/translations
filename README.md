@@ -9,13 +9,13 @@ var t = translate(require('locales/de-DE.json'));
 t('How are you?');
 // "Wie geht es dir?"
 
-t('Hello %s, how are you?', ['Max']);
+t('Hello {name}, how are you?', { name: 'Max'});
 // "Hallo Max, wie geht es dir?"
 
-t('Hello %s, how is %s?', ['Max', t('the weather')]);
+t('Hello {name}, how is {thing}?', { name: 'Max', thing: t('the weather')});
 // "Hallo Max, wie ist das Wetter?"
 
-t('Hello %s, how is %s?', ['Max']);
+t('Hello %s, how is %s?', { name: 'Max' });
 // throws error
 ```
 
