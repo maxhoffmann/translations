@@ -33,14 +33,14 @@ __de-DE.json__
 ## CLI
 
 ```bash
-npm i maxhoffmann-translate
+npm install maxhoffmann-translate
 
 maxhoffmann-translate <source> <target>
 
 maxhoffmann-translate locales/en.json locales/de-DE.json
 ```
 
-This command syncs the translation pairs from `source` to `target`:
+This command syncs the translation keys from `source` to `target`:
 
 If `target` has values that are not strings, it throws an error.
 
