@@ -1,10 +1,11 @@
-# translate
-translations api for node.js.
+# translations
+translations api for node.js and the browser.
 
 ## Usage
 
 ```js
-var t = translate(require('locales/de-DE.json'));
+var t = translations(require('locales/de-DE.json')); // node.js
+var t = translations(translationsObject); // browser
 
 t('How are you?');
 // "Wie geht es dir?"
@@ -12,10 +13,10 @@ t('How are you?');
 t('Hello {name}, how are you?', { name: 'Max'});
 // "Hallo Max, wie geht es dir?"
 
-t('Hello {name}, how is {thing}?', { name: 'Max', thing: t('the weather')});
+t('Hello {name}, how is {name}?', { name: 'Max', thing: t('the weather')});
 // "Hallo Max, wie ist das Wetter?"
 
-t('Hello %s, how is %s?', { name: 'Max' });
+t('Hello {name}, how is {thing}?', { name: 'Max' });
 // throws error
 ```
 
@@ -24,8 +25,8 @@ __de-DE.json__
 ```json
 {
   "How are you?": "Wie geht es dir?",
-  "Hello %s, how are you?": "Hallo %s, wie geht es dir?",
-  "Hello %s, how is the %s?": "Hallo %s, wie ist %s?",
+  "Hello {name}, how are you?": "Hallo {name}, wie geht es dir?",
+  "Hello {name}, how is the {thing}?": "Hallo {name}, wie ist {thing}?",
   "the weather": "das Wetter"
 }
 ```
@@ -33,11 +34,11 @@ __de-DE.json__
 ## CLI
 
 ```bash
-npm install maxhoffmann-translate
+npm install translations
 
-maxhoffmann-translate <source> <target>
+translations <source> <target>
 
-maxhoffmann-translate locales/en.json locales/de-DE.json
+translations locales/en.json locales/de-DE.json
 ```
 
 This command syncs the translation keys from `source` to `target`:
