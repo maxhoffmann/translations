@@ -26,7 +26,7 @@ __de-DE.json__
 {
   "How are you?": "Wie geht es dir?",
   "Hello {name}, how are you?": "Hallo {name}, wie geht es dir?",
-  "Hello {name}, how is the {thing}?": "Hallo {name}, wie ist {thing}?",
+  "Hello {name}, how is {thing}?": "Hallo {name}, wie ist {thing}?",
   "the weather": "das Wetter"
 }
 ```
