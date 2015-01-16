@@ -1,9 +1,13 @@
 "use strict";
 var t = require('fuchs-template');
 
-module.exports = function translations(json) {
-  var invalidLocale = Object.keys(json).some(function(key) {
-    return typeof json[key] !== 'string';
+module.exports = function translations(locale) {
+  if (typeof locale !== 'object') {
+    throw new Error('The locale has to be a json file or an object.')
+  }
+
+  var invalidLocale = Object.keys(locale).some(function(key) {
+    return typeof locale[key] !== 'string';
   })
 
   if (invalidLocale) {
@@ -11,6 +15,6 @@ module.exports = function translations(json) {
   }
 
   return function(input, values) {
-    return t(json[input], values);
+    return t(locale[input], values);
   }
 };

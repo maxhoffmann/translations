@@ -22,8 +22,14 @@ test('imported locale', function(is) {
 });
 
 test('invalid locale', function(is) {
+
+  is.throws(function() {
+    translations('');
+  }, 'throws because of invalid argument');
+
   is.throws(function() {
     translations(require('./locales/invalid'));
-  }, 'throws');
+  }, 'throws because of invalid value');
+
   is.end();
 });
