@@ -7,7 +7,7 @@ translations api for node.js and the browser.
 var t = translations(require('locales/de-DE.json')); // node.js
 var t = translations(translationsObject); // browser
 
-translations(locale, true); // second parameter turns on development mode which throws more errors
+translations(locale, true); // "true" turns on development mode which throws more errors
 
 t('How are you?');
 // "Wie geht es dir?"
