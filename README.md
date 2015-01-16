@@ -13,7 +13,7 @@ t('How are you?');
 t('Hello {name}, how are you?', { name: 'Max'});
 // "Hallo Max, wie geht es dir?"
 
-t('Hello {name}, how is {name}?', { name: 'Max', thing: t('the weather')});
+t('Hello {name}, how is {thing}?', { name: 'Max', thing: t('the weather')});
 // "Hallo Max, wie ist das Wetter?"
 
 t('Hello {name}, how is {thing}?', { name: 'Max' });
