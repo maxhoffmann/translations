@@ -1,6 +1,6 @@
 {
   "name": "translations",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "translations api for node.js and the browser",
   "main": "index.js",
   "bin": "cli.js",
