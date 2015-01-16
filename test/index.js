@@ -20,3 +20,10 @@ test('imported locale', function(is) {
   is.equal(actualGerman, expectedGerman, 'is used for translating (de-DE)');
   is.end();
 });
+
+test('invalid locale', function(is) {
+  is.throws(function() {
+    translations(require('./locales/invalid'));
+  }, 'throws');
+  is.end();
+});
