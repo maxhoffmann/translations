@@ -1,4 +1,4 @@
-# translations
+# translations [![version][1]][2]
 translations api for node.js and the browser.
 
 ## Installation
@@ -70,3 +70,6 @@ If `target` does already exist, the command does the following:
 ## LICENSE
 
 MIT (2015) Maximilian Hoffmann
+
+[1]: http://img.shields.io/npm/v/translations.svg?style=flat
+[2]: https://www.npmjs.org/package/translations
