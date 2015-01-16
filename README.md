@@ -7,17 +7,19 @@ translations api for node.js and the browser.
 var t = translations(require('locales/de-DE.json')); // node.js
 var t = translations(translationsObject); // browser
 
+translations(locale, true); // second parameter turns on development mode which throws more errors
+
 t('How are you?');
 // "Wie geht es dir?"
 
-t('Hello {name}, how are you?', { name: 'Max'});
+t('Hello {name}, how are you?', { name: 'Max' });
 // "Hallo Max, wie geht es dir?"
 
-t('Hello {name}, how is {thing}?', { name: 'Max', thing: t('the weather')});
+t('Hello {name}, how is {thing}?', { name: 'Max', thing: t('the weather') });
 // "Hallo Max, wie ist das Wetter?"
 
 t('Hello {name}, how is {thing}?', { name: 'Max' });
-// throws error
+// throws error in development mode
 ```
 
 __de-DE.json__
