@@ -66,3 +66,7 @@ If `target` does not exist yet, a copy of `source` will be created with the new 
 If `target` does already exist, the command does the following:
 - every key not found in `source` is removed
 - every key not found in `target` is added
+
+## LICENSE
+
+MIT (2015) Maximilian Hoffmann
