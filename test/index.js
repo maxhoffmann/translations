@@ -27,19 +27,37 @@ test('invalid locale', function(is) {
     translations('');
   }, 'throws because of invalid argument');
 
-  is.throws(function() {
-    translations(require('./locales/invalid'));
-  }, 'throws because of invalid value');
+  // development
 
   is.throws(function() {
+    translations(require('./locales/invalid'), true);
+  }, 'throws because of invalid values in development');
+
+  is.throws(function() {
+    var en = translations(require('./locales/en'), true);
+    en('invalid');
+  }, 'throws because of non-existent key in development');
+
+  is.throws(function() {
+    var en = translations(require('./locales/en'), true);
+    en('Hello {name}, how are you?', {});
+  }, 'throws because of missing value in development');
+
+  // production
+
+  is.doesNotThrow(function() {
+    translations(require('./locales/invalid'));
+  }, 'does not throw because of invalid values in production');
+
+  is.doesNotThrow(function() {
     var en = translations(require('./locales/en'));
     en('invalid');
-  }, 'throws because of non-existent key');
+  }, 'does not throw because of non-existent key in production');
 
-  is.throws(function() {
+  is.doesNotThrow(function() {
     var en = translations(require('./locales/en'));
     en('Hello {name}, how are you?', {});
-  }, 'throws because of missing value');
+  }, 'does not throw because of missing value in production');
 
   is.end();
 });
