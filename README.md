@@ -21,9 +21,11 @@ t('Hello {name}, how is {thing}?', { name: 'Max', thing: t('the weather') });
 
 t('undefined key in locale');
 // throws error in development mode for undefined keys
+// returns empty string in production mode
 
 t('Hello {name}, how is {thing}?', { name: 'Max' });
 // throws error in development mode for undefined variables
+// prints placeholders in production mode
 ```
 
 __de-DE.json__
