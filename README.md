@@ -1,4 +1,4 @@
-# translations [![version][1]][2]
+# translations [![version][1]][2] [![build][3]][4]
 translations api for node.js and the browser.
 
 ## Installation
@@ -73,3 +73,5 @@ MIT (2015) Maximilian Hoffmann
 
 [1]: http://img.shields.io/npm/v/translations.svg?style=flat
 [2]: https://www.npmjs.org/package/translations
+[3]: http://img.shields.io/travis/maxhoffmann/translations.svg?style=flat
+[4]: https://travis-ci.org/maxhoffmann/translations
