@@ -86,15 +86,36 @@ test('cli throws', function(is) {
   is.end();
 });
 
-test('cli', function(is) {
-  var testTarget = 'test/locales/__test.json';
-  is.ok(! fs.existsSync(path.resolve(process.cwd(), testTarget)), 'target should not exist yet');
+test('cli copies source if target does not exist yet', function(is) {
+  var testTarget = 'test/locales/__test-copy.json';
+  is.ok(! fs.existsSync(testTarget), 'target should not exist yet');
 
   cli('test/locales/en.json', testTarget);
 
-  is.ok(fs.existsSync(path.resolve(process.cwd(), testTarget)), 'copies source if target does not exist yet');
+  is.ok(fs.existsSync(testTarget));
   fs.removeSync(testTarget);
+  is.end();
+});
 
+test('cli syncs source with target if it does already exist', function(is) {
+  var testTarget = 'test/locales/__test-sync.json';
+  fs.copySync('test/locales/incomplete.json', testTarget);
 
+  cli('test/locales/en.json', testTarget);
+
+  is.ok(fs.existsSync(testTarget));
+
+  var sourceJson = fs.readJsonSync('test/locales/en.json');
+  var targetJson = fs.readJsonSync(testTarget);
+
+  is.equal(sourceJson.length, targetJson.length);
+
+  var hasSameKeys = Object.keys(targetJson).every(function(key) {
+    return key in sourceJson;
+  });
+
+  is.ok(hasSameKeys);
+
+  fs.removeSync(testTarget);
   is.end();
 });

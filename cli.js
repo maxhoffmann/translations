@@ -27,5 +27,22 @@ module.exports = function translations(source, target) {
     fs.copySync(sourcePath, targetPath);
     return console.log('copied '+source+' to '+target);
   }
+
+  var targetJson = fs.readJsonSync(targetPath);
+  var key;
+
+  for (key in targetJson) {
+    if (key in sourceJson) continue;
+    delete targetJson[key];
+  }
+
+  for (key in sourceJson) {
+    if (key in targetJson) continue;
+    targetJson[key] = sourceJson[key];
+  }
+
+  fs.writeJsonSync(targetPath, targetJson);
+
+  console.log('synced '+source+' to '+target);
 }
 
