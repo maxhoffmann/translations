@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "translations api for node.js and the browser",
   "main": "index.js",
+  "bin": "cli.js",
   "scripts": {
     "test": "tape test/index.js | tap-dot"
   },
@@ -28,6 +29,8 @@
     "tape": "^3.2.0"
   },
   "dependencies": {
+    "commander": "^2.6.0",
+    "fs-extra": "^0.14.0",
     "fuchs-template": "^1.0.0"
   }
 }
