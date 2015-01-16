@@ -1,6 +1,14 @@
 # translations
 translations api for node.js and the browser.
 
+## Installation
+
+```js
+npm install translations
+
+npm install translations -g // if you want to use the cli globally
+```
+
 ## Usage
 
 ```js
