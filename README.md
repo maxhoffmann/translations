@@ -4,10 +4,11 @@ translations api for node.js and the browser.
 ## Usage
 
 ```js
-var t = translations(require('locales/de-DE.json')); // node.js
-var t = translations(translationsObject); // browser
+var locale = require('locales/de-DE.json'); // node.js;
+var locale = window.locale; // browser example
 
-translations(locale, true); // "true" turns on development mode which throws more errors
+var t = translations(locale); // production mode: ignores most errors
+var t = translations(locale, true); // development mode: throws more errors
 
 t('How are you?');
 // "Wie geht es dir?"
@@ -18,8 +19,11 @@ t('Hello {name}, how are you?', { name: 'Max' });
 t('Hello {name}, how is {thing}?', { name: 'Max', thing: t('the weather') });
 // "Hallo Max, wie ist das Wetter?"
 
+t('undefined key in locale');
+// throws error in development mode for undefined keys
+
 t('Hello {name}, how is {thing}?', { name: 'Max' });
-// throws error in development mode
+// throws error in development mode for undefined variables
 ```
 
 __de-DE.json__
