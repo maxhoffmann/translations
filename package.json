@@ -1,0 +1,33 @@
+{
+  "name": "translations",
+  "version": "1.0.0",
+  "description": "translations api for node.js and the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/index.js | tap-dot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://maxhoffmann@github.com/maxhoffmann/translations"
+  },
+  "keywords": [
+    "translations",
+    "translate",
+    "i18n",
+    "browser",
+    "node"
+  ],
+  "author": "Maximilian Hoffmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxhoffmann/translations/issues"
+  },
+  "homepage": "https://github.com/maxhoffmann/translations",
+  "devDependencies": {
+    "tap-dot": "^0.2.3",
+    "tape": "^3.2.0"
+  },
+  "dependencies": {
+    "fuchs-template": "^1.0.0"
+  }
+}
