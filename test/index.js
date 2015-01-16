@@ -31,5 +31,10 @@ test('invalid locale', function(is) {
     translations(require('./locales/invalid'));
   }, 'throws because of invalid value');
 
+  is.throws(function() {
+    var en = translations(require('./locales/en'));
+    en('invalid');
+  }, 'throws because of non-existent key');
+
   is.end();
 });
