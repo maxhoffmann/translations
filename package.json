@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "translations api for node.js and the browser",
   "main": "index.js",
-  "bin": "cli.js",
+  "bin": "bin/translations",
   "scripts": {
     "test": "tape test/index.js | tap-dot"
   },
