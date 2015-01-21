@@ -5,8 +5,6 @@ translations api for node.js and the browser.
 
 ```js
 npm install translations
-
-npm install translations -g // if you want to use the cli globally
 ```
 
 ## Usage
@@ -49,9 +47,13 @@ __de-DE.json__
 
 ## CLI
 
+### Installation
+
 ```bash
-npm install translations
+npm install translations -g // if you want to use the cli globally
 ```
+
+### sync
 
 ```bash
 # sync locales
@@ -70,6 +72,8 @@ If `target` does not exist yet, a copy of `master` will be created with the targ
 If `target` does already exist, the command does the following:
 - every key not found in `master` is removed
 - every key not found in `target` is added
+
+### export
 
 ```bash
 # export locales for browser usage
