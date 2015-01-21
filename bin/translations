@@ -13,7 +13,7 @@ program
   .action(sync);
 
 program
-  .command('export <inputDirectory> <outputDirectory> [options]')
+  .command('export <inputDirectory> <outputDirectory>')
   .description('exports locales in <inputDirectory> to <outputDirectory>')
   .option('-a, --assign <variable>', 'assigns exported locale to <variable>', 'window.locale')
   .action(_export);
