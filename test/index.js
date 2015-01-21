@@ -2,8 +2,8 @@
 var fs = require('fs-extra');
 var test = require('tape');
 
-var translations = require('../');
-var cli = require('../cli');
+var translations = require('../lib');
+var sync = require('../lib/sync');
 
 test('imported locale', function(is) {
   var english = translations(require('./locales/en'));
@@ -64,43 +64,43 @@ test('invalid locale', function(is) {
   is.end();
 });
 
-test('cli throws', function(is) {
+test('sync throws', function(is) {
 
   is.throws(function() {
-    cli();
+    sync();
   }, 'if no source is passed');
 
   is.throws(function() {
-    cli('source');
+    sync('source');
   }, 'if no target is passed');
 
   is.throws(function() {
-    cli('not found', 'found');
+    sync('not found', 'found');
   }, /find/, 'if source was not found');
 
   is.throws(function() {
-    cli('test/locales/invalid.json', 'found');
+    sync('test/locales/invalid.json', 'found');
   }, /strings/, 'if source has values that are not strings');
 
   is.end();
 });
 
-test('cli copies source if target does not exist yet', function(is) {
+test('sync copies source if target does not exist yet', function(is) {
   var testTarget = 'test/locales/__test-copy.json';
   is.ok(! fs.existsSync(testTarget), 'target should not exist yet');
 
-  cli('test/locales/en.json', testTarget);
+  sync('test/locales/en.json', testTarget);
 
   is.ok(fs.existsSync(testTarget));
   fs.removeSync(testTarget);
   is.end();
 });
 
-test('cli syncs source with target if it does already exist', function(is) {
+test('sync syncs source with target if it does already exist', function(is) {
   var testTarget = 'test/locales/__test-sync.json';
   fs.copySync('test/locales/incomplete.json', testTarget);
 
-  cli('test/locales/en.json', testTarget);
+  sync('test/locales/en.json', testTarget);
 
   is.ok(fs.existsSync(testTarget));
 

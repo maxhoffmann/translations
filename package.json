@@ -2,7 +2,7 @@
   "name": "translations",
   "version": "1.0.2",
   "description": "translations api for node.js and the browser",
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": "bin/translations",
   "scripts": {
     "test": "tape test/index.js | tap-dot"
