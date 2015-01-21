@@ -1,8 +1,21 @@
 #!/usr/bin/env node
 "use strict";
 var program = require('commander');
+var sync = require('../lib/sync');
+var _export = require('../lib/export');
 
 program
-  .version(require('../package.json').version)
-  .command('sync <master> <target>', 'syncs <master> locale with <target> locale')
-  .parse(process.argv);
+  .version(require('../package.json').version);
+
+program
+  .command('sync <master> <target>')
+  .description('syncs <master> locale with <target> locale')
+  .action(sync);
+
+program
+  .command('export <inputDirectory> <outputDirectory> [options]')
+  .description('exports locales in <inputDirectory> to <outputDirectory>')
+  .option('-a, --assign <variable>', 'assigns exported locale to <variable>', 'window.locale')
+  .action(_export);
+
+program.parse(process.argv);

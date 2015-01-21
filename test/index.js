@@ -4,6 +4,7 @@ var test = require('tape');
 
 var translations = require('../lib');
 var sync = require('../lib/sync');
+var _export = require('../lib/export');
 
 test('imported locale', function(is) {
   var english = translations(require('./locales/en'));
@@ -117,4 +118,41 @@ test('sync syncs source with target if it does already exist', function(is) {
 
   fs.removeSync(testTarget);
   is.end();
+});
+
+test('export throws', function(is) {
+
+  is.throws(function() {
+    _export();
+  }, 'if no input directory is passed');
+
+  is.throws(function() {
+    _export('input directory');
+  }, 'if no output directory is passed');
+
+  is.throws(function() {
+    _export('not found', 'found');
+  }, /find/, 'if input directory was not found');
+
+  is.throws(function() {
+    _export('test/empty', 'found');
+  }, /no locales/, 'if input directory is empty');
+
+  is.end();
+});
+
+test('export exports locales in inputDirectory to outputdirectory', function(is) {
+  var testInputDirectory = 'test/input';
+  var testOutputDirectory = 'test/exported';
+
+  _export(testInputDirectory, testOutputDirectory, { variable: 'window.testLocale' });
+
+  setTimeout(function() {
+    is.ok(fs.existsSync(testOutputDirectory));
+    is.ok(fs.readdirSync(testOutputDirectory).length);
+
+    fs.removeSync(testOutputDirectory);
+
+    is.end();
+  }, 300)
 });

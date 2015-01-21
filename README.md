@@ -51,21 +51,33 @@ __de-DE.json__
 
 ```bash
 npm install translations
-
-translations <source> <target>
-
-translations locales/en.json locales/de-DE.json
 ```
 
-This command syncs the translation keys from `source` to `target`:
+```bash
+// sync locales
+translations sync <master> <target>
+
+// example
+translations sync locales/en.json locales/de-DE.json
+```
+
+`translations sync` syncs the `master` translations file with the `target` one:
 
 If `target` has values that are not strings, it throws an error.
 
-If `target` does not exist yet, a copy of `source` will be created with the new name (`de-DE.json`).
+If `target` does not exist yet, a copy of `master` will be created with the target’s name (`de-DE.json`).
 
 If `target` does already exist, the command does the following:
-- every key not found in `source` is removed
+- every key not found in `master` is removed
 - every key not found in `target` is added
+
+```bash
+// export locales for browser usage
+translations export <inputDirectory> <outputDirectory> --assign <variable>
+```
+
+`translations export` will create or overwrite the given output directory with js files for valid locales in the input directory. Each js
+file assigns the locale’s translations to the given variable (or `window.locale` by default).
 
 ## LICENSE
 
