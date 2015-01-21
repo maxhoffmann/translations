@@ -45,7 +45,7 @@ __de-DE.json__
 }
 ```
 
-## CLI
+## Command Line
 
 ### Installation
 
