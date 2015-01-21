@@ -54,10 +54,10 @@ npm install translations
 ```
 
 ```bash
-// sync locales
+# sync locales
 translations sync <master> <target>
 
-// example
+# example
 translations sync locales/en.json locales/de-DE.json
 ```
 
@@ -72,7 +72,7 @@ If `target` does already exist, the command does the following:
 - every key not found in `target` is added
 
 ```bash
-// export locales for browser usage
+# export locales for browser usage
 translations export <inputDirectory> <outputDirectory> --assign <variable>
 ```
 
