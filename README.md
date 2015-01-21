@@ -1,5 +1,5 @@
 # translations [![version][1]][2] [![build][3]][4]
-translations api for node.js and the browser.
+translations api for node.js, browsers and the command line.
 
 ## Installation
 
