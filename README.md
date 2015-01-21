@@ -50,7 +50,7 @@ __de-DE.json__
 ### Installation
 
 ```bash
-npm install translations -g // if you want to use the cli globally
+npm install translations -g # if you want to use the cli globally
 ```
 
 ### sync
