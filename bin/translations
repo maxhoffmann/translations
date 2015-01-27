@@ -16,6 +16,7 @@ program
   .command('export <inputDirectory> <outputDirectory>')
   .description('exports locales in <inputDirectory> to <outputDirectory>')
   .option('-a, --assign <variable>', 'assigns exported locale to <variable>', 'window.locale')
+  .option('-w, --watch', 'watches <inputDirectory> for file changes')
   .action(_export);
 
 program.parse(process.argv);
