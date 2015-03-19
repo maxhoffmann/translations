@@ -1,6 +1,6 @@
 {
   "name": "translations",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "translations api for node.js, browsers and the command line",
   "main": "lib/index.js",
   "bin": "bin/translations",
@@ -29,9 +29,9 @@
     "tape": "^3.2.0"
   },
   "dependencies": {
+    "chokidar": "^1.0.0-rc4",
     "commander": "^2.6.0",
     "fs-extra": "^0.14.0",
-    "fuchs-template": "^1.0.0",
-    "gaze": "^0.6.4"
+    "fuchs-template": "^1.0.0"
   }
 }
