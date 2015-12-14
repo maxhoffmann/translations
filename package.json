@@ -1,6 +1,6 @@
 {
   "name": "translations",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "translations api for node.js, browsers and the command line",
   "main": "lib/index.js",
   "bin": "bin/translations",
