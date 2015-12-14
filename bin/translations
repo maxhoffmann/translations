@@ -8,7 +8,7 @@ program
   .version(require('../package.json').version);
 
 program
-  .command('sync <master> <target>')
+  .command('sync <master> <target> [spaces]')
   .description('syncs <master> locale with <target> locale')
   .action(sync);
 
